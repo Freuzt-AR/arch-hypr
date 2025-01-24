@@ -15,7 +15,7 @@ mkfs.fat -F 32 /dev/sda1
 mount /dev/sda1 /mnt/boot
 
 mkswap /dev/sda2
-swapon
+swapon /dev/sda2
 
 pacstrap -K /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
