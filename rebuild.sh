@@ -39,7 +39,7 @@ pacman -Sy grub efibootmgr nano networkmanager git
 # Configuration Arch : Etape 4 - Le boot
 
 mkinitcpio -P
-passd root
+passd -q root
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
