@@ -6,11 +6,15 @@ loadkeys fr
 fdisk -l /dev/sda
 
 mkdir /mnt
-mount /dev/sda1 /mnt
-mkfs.ext4 /dev/sda1
+mkfs.ext4 /dev/sda3
+mount /dev/sda3 /mnt
+
 mkdir /mnt/boot
-mkfs.fat /dev/sda2
-mkswap /dev/sda3
+
+mkfs.fat -F 32 /dev/sda1
+mount /dev/sda1 /mnt/boot
+
+mkswap /dev/sda2
 swapon
 
 pacstrap -K /mnt base linux linux-firmware
