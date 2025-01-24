@@ -26,20 +26,20 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 hwclock --systohc
 
-echo "fr_FR.UTF-8" > /etc/locale.gen
+echo fr_FR.UTF-8 > /etc/locale.gen
 cat /etc/locale.gen
 locale-gen
-echo "LANG=fr_FR.UTF-8" > /etc/locale.conf
+echo LANG=fr_FR.UTF-8 > /etc/locale.conf
 echo "KEYMAP=fr" > /etc/vconsole.conf
 echo "hypr-vf" > /etc/hostname
 
 # Configuration Arch : Etape 3 - les paquets
-pacman -Sy grub efibootmgr nano network-manager nmap iwctl hyprland waybar chromium git
+pacman -Sy grub efibootmgr nano networkmanager git
 
 # Configuration Arch : Etape 4 - Le boot
 
 mkinitcpio -P
-passwd
+passd root
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
